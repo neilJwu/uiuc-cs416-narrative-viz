@@ -5,10 +5,7 @@
 <svg width=800 height=800>
 </svg>
 <script>
-  d3.csv("2020.csv", function(error, data) {
-    if (error) {
-        throw error;
-    }
+  d3.csv("2020.csv", function(data) {
     console.log(data);
   });
 
