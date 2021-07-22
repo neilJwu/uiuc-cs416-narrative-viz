@@ -6,7 +6,7 @@
 </svg>
 <script>
   var data = [2702702,2802467,3740688,2911128,3091455,3931607,3639224,3115063,2892115,3305465,3626335,3937066];
-  var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2021-01-01")]).range([0,500]);
+  var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2021-12-31")]).range([0,500]);
   var y = d3.scaleLinear().domain([2000000,4000000]).range([500,0]);
   d3.select("svg").attr("width", 500 + 2*150)
   .attr("height", 500 + 2*150)
@@ -18,7 +18,7 @@
   .attr("height", function(d) { return 500-y(d); });
   
   d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 150 + ")").call(d3.axisLeft(y));
-  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 550 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
+  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 350 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
 </script>
 </body>
 </html>
