@@ -8,34 +8,34 @@
   
   d3.csv("2020.csv", function(data) {
     console.log(data);
+
+    d3.select("svg").append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 1.5)
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("d", line);
+
+    var line = d3.svg.line()
+        .x(function(d) { return x(d.date); })
+        .y(function(d) { return y(d.value); });
+
+    var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2020-12-31")]).range([0,500]);
+    var y = d3.scaleLinear().domain([2000000,4000000]).range([500,0]);
+  //   d3.select("svg").attr("width", 500 + 2*150)
+  //   .attr("height", 500 + 2*150)
+  //   .append("g")
+  //   .attr("transform", "translate(" + 150 + "," + 150 + ")")
+  //   .selectAll().enter().append("rect")
+  //   .attr("x", function(d) { return x(d.date); })
+  //   .attr("y", function(d) { return y(d.value); })
+  //   .attr("height", function(d) { return 500-y(d.value); });
+
+    d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 150 + ")").call(d3.axisLeft(y));
+    d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 650 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
   });
-
-  d3.select("svg").append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-      .attr("d", line);
-
-  var line = d3.svg.line()
-      .x(function(d) { return x(d.date); })
-      .y(function(d) { return y(d.value); });
-  
-  var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2020-12-31")]).range([0,500]);
-  var y = d3.scaleLinear().domain([2000000,4000000]).range([500,0]);
-//   d3.select("svg").attr("width", 500 + 2*150)
-//   .attr("height", 500 + 2*150)
-//   .append("g")
-//   .attr("transform", "translate(" + 150 + "," + 150 + ")")
-//   .selectAll().enter().append("rect")
-//   .attr("x", function(d) { return x(d.date); })
-//   .attr("y", function(d) { return y(d.value); })
-//   .attr("height", function(d) { return 500-y(d.value); });
-  
-  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 150 + ")").call(d3.axisLeft(y));
-  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 650 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
 </script>
 </body>
 </html>
