@@ -5,7 +5,13 @@
 <svg width=800 height=800>
 </svg>
 <script>
-  var data = [2702702,2802467,3740688,2911128,3091455,3931607,3639224,3115063,2892115,3305465,3626335,3937066];
+  d3.csv("2020.csv", function(error, data) {
+    if (error) {
+        throw error;
+    }
+    console.log(data);
+  });
+
   var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2020-12-31")]).range([0,500]);
   var y = d3.scaleLinear().domain([2000000,4000000]).range([500,0]);
   d3.select("svg").attr("width", 500 + 2*150)
