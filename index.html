@@ -39,7 +39,6 @@ ${formatDate(date)}`);
   svg.on("touchend mouseleave", () => tooltip.call(callout, null));
 
   return svg.node();
-}
 
 callout = (g, value) => {
   if (!value) return g.style("display", "none");
