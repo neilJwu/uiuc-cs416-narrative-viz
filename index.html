@@ -6,6 +6,10 @@
 </svg>
 <script>
   
+  d3.csv("2020.csv", function(data) {
+    console.log(data);
+  });
+
   d3.select("svg").append("path")
       .datum(data)
       .attr("fill", "none")
@@ -19,10 +23,6 @@
       .x(function(d) { return x(d.date); })
       .y(function(d) { return y(d.value); });
   
-  d3.csv("2020.csv", function(data) {
-    console.log(data);
-  });
-
   var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2020-12-31")]).range([0,500]);
   var y = d3.scaleLinear().domain([2000000,4000000]).range([500,0]);
 //   d3.select("svg").attr("width", 500 + 2*150)
