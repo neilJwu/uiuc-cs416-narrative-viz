@@ -18,7 +18,7 @@
   .attr("height", function(d) { return 500-y(d); });
   
   d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 150 + ")").call(d3.axisLeft(y));
-  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 550 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
+  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 650 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
 </script>
 </body>
 </html>
