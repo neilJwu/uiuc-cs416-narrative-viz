@@ -15,7 +15,6 @@
   .selectAll().data(data).enter().append("rect")
   .attr("x", function(d,i) { return x(i); })
   .attr("y", function(d,i) { return y(d); })
-  .attr("width", x.bandwidth())
   .attr("height", function(d) { return 500-y(d); });
   
   d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 150 + ")").call(d3.axisLeft(y));
