@@ -6,7 +6,7 @@
 </svg>
 <script>
   
-  svg.append("path")
+  d3.select("svg").append("path")
       .datum(data)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
