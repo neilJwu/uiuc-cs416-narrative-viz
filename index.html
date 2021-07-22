@@ -19,7 +19,7 @@
   .attr("height", function(d) { return 200-y(d); });
   
   d3.select("svg").append("g").attr("transform", "translate(" + 50 + "," + 50 + ")").call(d3.axisLeft(y));
-  d3.select("svg").append("g").attr("transform", "translate(" + 50 + "," + 250 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")););
+  d3.select("svg").append("g").attr("transform", "translate(" + 50 + "," + 250 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
 </script>
 </body>
 </html>
