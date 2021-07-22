@@ -14,7 +14,7 @@
   .attr("transform", "translate(" + 50 + "," + 50 + ")")
   .selectAll().data(data).enter().append("rect")
   .attr("x", function(d,i) { return x(i); })
-  .attr("x", function(d,i) { return y(d); })
+  .attr("y", function(d,i) { return y(d); })
   .attr("width", x.bandwidth())
   .attr("height", function(d) { return 200-y(d); });
   
