@@ -15,7 +15,7 @@
   .attr("height", 500 + 2*150)
   .append("g")
   .attr("transform", "translate(" + 150 + "," + 150 + ")")
-  .selectAll().data(data).enter().append("rect")
+  .selectAll().enter().append("rect")
   .attr("x", function(d) { return x(d.date); })
   .attr("y", function(d) { return y(d.value); })
   .attr("height", function(d.value) { return 500-y(d.value); });
