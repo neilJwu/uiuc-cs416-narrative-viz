@@ -81,7 +81,7 @@
           .attr("cx", function(d) { return x(d.date) })
           .attr("cy", function(d) { return y(d.value) })
           .attr("r", 5)
-          .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+          .on("mouseover", function(){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);})
           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]+90) + "px").style("top", (d3.mouse(this)[1]) + "px");})
           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
@@ -96,8 +96,6 @@
         .style("border-width", "1px")
         .style("border-radius", "5px")
         .style("padding", "10px")
-        .text("Firearm Background Checks: " + data.value);
-
   });
     
 </script>
