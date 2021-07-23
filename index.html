@@ -80,7 +80,7 @@
           .attr("stroke", "none")
           .attr("cx", function(d) { return x(d.date) })
           .attr("cy", function(d) { return y(d.value) })
-          .attr("r", 10)
+          .attr("r", 5)
           .on("mouseover", function(){return tooltip.style("visibility", "visible");})
           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]+90) + "px").style("top", (d3.mouse(this)[1]) + "px");})
           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
