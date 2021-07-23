@@ -38,11 +38,11 @@
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
-        .call(d3.axisBottom(x).ticks(12).tickSizeOuter(0));
+        .call(d3.axisBottom(x).ticks(12).tickSizeOuter(0).tickFormat(d3.timeFormat("%b")));
 
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain( d3.extent(data, function(d) { return +d.value; }) )
+        .domain( [2000000,4000000] )
         .range([ height, 0 ]);
       svg.append("g")
         .attr("transform", "translate(-5,0)")
