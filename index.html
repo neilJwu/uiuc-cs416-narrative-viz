@@ -103,11 +103,13 @@
     // A function that change this tooltip when the user hover a point.
     // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
     var mouseover = function(d) {
+      console.log("Mouseover!");
       tooltip
         .style("opacity", 1)
     }
 
     var mousemove = function(d) {
+      console.log("Mousemove!");
       tooltip
         .html("Firearm Background Checks: " + d.value)
         .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
@@ -116,6 +118,7 @@
 
     // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
     var mouseleave = function(d) {
+      console.log("Mouseleave!");
       tooltip
         .transition()
         .duration(200)
