@@ -30,9 +30,6 @@
     // Now I can use this dataset:
     function(data) {
 
-      // Keep only the 90 first rows
-      data = data.filter(function(d,i){ return i<90})
-
       // Add X axis --> it is a date format
       var x = d3.scaleTime()
         .domain(d3.extent(data, function(d) { return d.date; }))
