@@ -82,7 +82,7 @@
           .attr("cy", function(d) { return y(d.value) })
           .attr("r", 5)
           .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);})
-          .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1] - 90) + "px");})
+          .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
     
