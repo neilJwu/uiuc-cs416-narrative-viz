@@ -8,21 +8,21 @@
   d3.csv("2020.csv", function(data) {
     console.log(data);
 
-  var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2020-12-31")]).range([0,500]);
-  var y = d3.scaleLinear().domain([2000000,4000000]).range([500,0]);
-  
-  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 150 + ")").call(d3.axisLeft(y));
-  d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 650 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
-    
-  d3.select("svg").attr("width", 500 + 2*150)
-  .attr("height", 500 + 2*150)
-  .append("g")
-  .attr("transform", "translate(" + 150 + "," + 150 + ")")
-  .selectAll("dot").data(data).enter().append("circle")
-        .attr("cx", function (d) { return x(d.date); } )
-        .attr("cy", function (d) { return y(d.value); } )
-        .attr("r", 2)
-        .style("fill", "#CC0000");
+    var x = d3.scaleTime().domain([new Date("2020-01-01"), new Date("2020-12-31")]).range([0,500]);
+    var y = d3.scaleLinear().domain([2000000,4000000]).range([500,0]);
+
+    d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 150 + ")").call(d3.axisLeft(y));
+    d3.select("svg").append("g").attr("transform", "translate(" + 150 + "," + 650 + ")").call(d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
+
+    d3.select("svg").attr("width", 500 + 2*150)
+    .attr("height", 500 + 2*150)
+    .append("g")
+    .selectAll("dot").data(data).enter().append("circle")
+    .attr("cx", function (d) { return x(d.date); } )
+    .attr("cy", function (d) { return y(d.value); } )
+    .attr("r", 2)
+    .attr("transform", "translate(" + 150 + "," + 150 + ")")
+    .style("fill", "#CC0000");
   });
 </script>
 </body>
