@@ -4,13 +4,13 @@
 <script src='https://d3js.org/d3.v4.min.js'></script>
 <style> rect {fill: lightblue; stroke: black; }</style>
 <body>
-<svg width=800 height=800>
+<svg width=1500 height=1500>
 </svg>
 <script>
   // set the dimensions and margins of the graph
   var margin = {top: 150, right: 150, bottom: 150, left: 150},
-      width = 1000 - margin.left - margin.right,
-      height = 1000 - margin.top - margin.bottom;
+      width = 1500 - margin.left - margin.right,
+      height = 1500 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   var svg = d3.select("#my_dataviz")
@@ -22,7 +22,7 @@
             "translate(" + margin.left + "," + margin.top + ")")
 
   //Read the data
-  d3.csv("2020.csv",
+  d3.csv("/massaged_data/massaged-nics-firearm-background-checks.csv",
 
     // When reading the csv, I must format variables:
     function(d){
@@ -84,7 +84,6 @@
           .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);})
           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-
     
     // create a tooltip
     var tooltip = d3.select("#my_dataviz")
