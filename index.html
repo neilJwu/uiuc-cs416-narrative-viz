@@ -83,7 +83,7 @@
           .attr("cx", function(d) { return x(d.date) })
           .attr("cy", function(d) { return y(d.value) })
           .attr("r", 5)
-          .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Date: " + format(d.date) + "Firearm Background Checks: " + d.value);})
+          .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Date: " + format.parse(d.date) + "Firearm Background Checks: " + d.value);})
           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
