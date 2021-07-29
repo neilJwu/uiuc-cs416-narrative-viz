@@ -5,19 +5,22 @@
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
-    <div id="my_dataviz1"></div>
+    <svg width=1200 height=1000 id=svg1>
+</svg>
     <div class="text">Caption Text</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 3</div>
-    <div id="my_dataviz2"></div>
+    <svg width=1200 height=1000 id=svg2>
+</svg>
     <div class="text">Caption Two</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-    <div id="my_dataviz2"></div>
+    <svg width=1200 height=1000 id=svg3>
+</svg>
     <div class="text">Caption Three</div>
   </div>
 
@@ -130,12 +133,6 @@
   to {opacity: 1}
 }</style>
 <body>
-<svg width=1200 height=1000 id=svg1>
-</svg>
-  <svg width=1200 height=1000 id=svg2>
-</svg>
-  <svg width=1200 height=1000 id=svg3>
-</svg>
   
 <script>
   var slideIndex = 1;
@@ -176,11 +173,8 @@ function showSlides(n) {
       height = 1000 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
-  var svg = d3.select("#my_dataviz")
-    .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
+  var svg = d3.select("#svg1")
+  svg1.append("g")
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")")
 
@@ -251,7 +245,7 @@ function showSlides(n) {
           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     // create a tooltip
-    var tooltip = d3.select("#my_dataviz")
+    var tooltip = d3.select("#svg1")
       .append("div")
         .style("position", "absolute")
         .style("visibility", "hidden")
@@ -335,11 +329,8 @@ function showSlides(n) {
       height = 1000 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
-  var svg = d3.select("#my_dataviz2")
-    .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
+  var svg2 = d3.select("#svg2")
+  svg2.append("g")
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")")
 
@@ -410,7 +401,7 @@ function showSlides(n) {
           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     // create a tooltip
-    var tooltip = d3.select("#my_dataviz2")
+    var tooltip = d3.select("#svg2")
       .append("div")
         .style("position", "absolute")
         .style("visibility", "hidden")
