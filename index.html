@@ -1,6 +1,7 @@
 <html>
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
+<input type="button" onclick="/index2.html';" value="Next" />
 <script src='https://d3js.org/d3.v4.min.js'></script>
 <style> rect {fill: lightblue; stroke: black; }</style>
 <body>
@@ -163,7 +164,6 @@
       .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
   });
-    
 </script>
 </body>
 </html>
