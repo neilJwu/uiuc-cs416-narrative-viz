@@ -148,7 +148,7 @@
 
       // Add Y axis
       var y2 = d3.scaleLinear()
-        .domain( [4000,20000] )
+        .domain( [8000,20000] )
         .range([ height, 0 ]);
       svg.append("g")
         .attr("transform", "translate(" + (width+5) + ",0)")
@@ -157,7 +157,7 @@
       // Add the area
       svg.append("path")
         .datum(data)
-        .attr("fill", "blue")
+        .attr("fill", "none")
         .attr("fill-opacity", .3)
         .attr("stroke", "none")
         .attr("d", d3.area()
