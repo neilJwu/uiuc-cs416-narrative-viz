@@ -133,7 +133,7 @@
 
     // When reading the csv, I must format variables:
     function(d){
-      return { date : d3.timeParse("%Y-%m-%d")(d.DSPIC96), value : d.DSPIC96 }
+      return { date : d3.timeParse("%Y-%m-%d")(d.DATE), value : d.DSPIC96 }
     },
 
     // Now I can use this dataset:
