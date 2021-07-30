@@ -140,12 +140,12 @@
     function(data) {
 
       // Add X axis --> it is a date format
-//       var x = d3.scaleTime()
-//         .domain(d3.extent(data, function(d) { return d.date; }))
-//         .range([ 0, width ]);
-//       svg.append("g")
-//         .attr("transform", "translate(0," + (height+5) + ")")
-//         .call(d3.axisBottom(x).ticks(5).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
+      var x = d3.scaleTime()
+        .domain(d3.extent(data, function(d) { return d.date; }))
+        .range([ 0, width ]);
+      svg.append("g")
+        .attr("transform", "translate(0," + (height+5) + ")")
+        .call(d3.axisBottom(x).ticks(5).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
 
       // Add Y axis
       var y2 = d3.scaleLinear()
