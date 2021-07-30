@@ -157,7 +157,7 @@
       // Add the area
       svg.append("path")
         .datum(data)
-        .attr("fill", "#69b3a2")
+        .attr("fill", "blue")
         .attr("fill-opacity", .3)
         .attr("stroke", "none")
         .attr("d", d3.area()
@@ -170,7 +170,7 @@
       svg.append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "#69b3a2")
+        .attr("stroke", "blue")
         .attr("stroke-width", 4)
         .attr("d", d3.line()
           .x(function(d) { return x(d.DATE) })
