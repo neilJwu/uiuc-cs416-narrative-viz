@@ -45,7 +45,7 @@
 
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain( [1000000,5000000] )
+        .domain( [500000,5000000] )
         .range([ height, 0 ]);
       svg.append("g")
         .attr("transform", "translate(-5,0)")
@@ -101,18 +101,18 @@
         .style("border-radius", "5px")
         .style("padding", "10px");
     
-    svg.append("line")
-      .attr("x1", x(new Date("2015-12-02")))
-      .attr("y1", y(0))
-      .attr("x2", x(new Date("2015-12-02")))  //<<== and here
-      .attr("y2", y(5000000))
-      .style("stroke-width", 2)
-      .style("stroke", "red")
-      .style("fill", "none")
-      .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Dec 02, 2015: 14 Killed in San Bernardino Social Services Center Shooting");
-          })
-      .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-      .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+//     svg.append("line")
+//       .attr("x1", x(new Date("2015-12-02")))
+//       .attr("y1", y(0))
+//       .attr("x2", x(new Date("2015-12-02")))  //<<== and here
+//       .attr("y2", y(5000000))
+//       .style("stroke-width", 2)
+//       .style("stroke", "red")
+//       .style("fill", "none")
+//       .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Dec 02, 2015: 14 Killed in San Bernardino Social Services Center Shooting");
+//           })
+//       .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
+//       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
 //     svg.append("line")
 //       .attr("x1", x(new Date("2012-12-14")))
