@@ -45,7 +45,7 @@
 
       // Add Y axis
       var y = d3.scaleLinear()
-        .domain( [0,5000000] )
+        .domain( [1000000,5000000] )
         .range([ height, 0 ]);
       svg.append("g")
         .attr("transform", "translate(-5,0)")
@@ -116,7 +116,7 @@
     
     svg.append("line")
       .attr("x1", x(new Date("2012-12-14")))
-      .attr("y1", y(1000000))
+      .attr("y1", y(0))
       .attr("x2", x(new Date("2012-12-14")))  //<<== and here
       .attr("y2", y(5000000))
       .style("stroke-width", 2)
