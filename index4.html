@@ -154,17 +154,17 @@
         .attr("transform", "translate(" + (width+5) + ",0)")
         .call(d3.axisRight(y2).tickSizeOuter(0));
 
-      // Add the area
-      svg.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("fill-opacity", .3)
-        .attr("stroke", "none")
-        .attr("d", d3.area()
-          .x(function(d) { return x(d.DATE) })
-          .y0( height )
-          .y1(function(d) { return y2(d.DSPIC96) })
-          )
+//       // Add the area
+//       svg.append("path")
+//         .datum(data)
+//         .attr("fill", "none")
+//         .attr("fill-opacity", .3)
+//         .attr("stroke", "none")
+//         .attr("d", d3.area()
+//           .x(function(d) { return x(d.DATE) })
+//           .y0( height )
+//           .y1(function(d) { return y2(d.DSPIC96) })
+//           )
 
       // Add the line
       svg.append("path")
@@ -174,7 +174,7 @@
         .attr("stroke-width", 4)
         .attr("d", d3.line()
           .x(function(d) { return x(d.DATE) })
-          .y(function(d) { return y2(d.DSPIC96) })
+          .y(function(d) { return y2(d.DSPIC96) + 5})
           )
     
 
