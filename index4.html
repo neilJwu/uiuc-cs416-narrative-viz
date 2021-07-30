@@ -133,7 +133,7 @@
 
     // When reading the csv, I must format variables:
     function(d){
-      return { date : d3.timeParse("%Y-%m-%d")(d.DATE), value : d.DSPIC96 }
+      return { DATE : d3.timeParse("%Y-%m-%d")(d.DATE), DSPIC96 : d.DSPIC96 }
     },
 
     // Now I can use this dataset:
@@ -141,7 +141,7 @@
 
       // Add X axis --> it is a date format
       var x = d3.scaleTime()
-        .domain(d3.extent(data, function(d) { return d.date; }))
+        .domain(d3.extent(data, function(d) { return d.DATE; }))
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
@@ -162,9 +162,9 @@
         .attr("fill-opacity", .3)
         .attr("stroke", "none")
         .attr("d", d3.area()
-          .x(function(d) { return x(d.date) })
+          .x(function(d) { return x(d.DATE) })
           .y0( height )
-          .y1(function(d) { return y2(d.value) })
+          .y1(function(d) { return y2(d.DSPIC96) })
           )
 
       // Add the line
@@ -174,8 +174,8 @@
         .attr("stroke", "#69b3a2")
         .attr("stroke-width", 4)
         .attr("d", d3.line()
-          .x(function(d) { return x(d.date) })
-          .y(function(d) { return y2(d.value) })
+          .x(function(d) { return x(d.DATE) })
+          .y(function(d) { return y2(d.DSPIC96) })
           )
     
 
