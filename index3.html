@@ -148,12 +148,12 @@
 //         .call(d3.axisBottom(x).ticks(5).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
 
       // Add Y axis
-      var y = d3.scaleLinear()
+      var y2 = d3.scaleLinear()
         .domain( [0,6000] )
         .range([ height, 0 ]);
       svg.append("g")
         .attr("transform", "translate(-5,0)")
-        .call(d3.axisRight(y).tickSizeOuter(0));
+        .call(d3.axisRight(y2).tickSizeOuter(0));
 
       // Add the area
       svg.append("path")
@@ -164,7 +164,7 @@
         .attr("d", d3.area()
           .x(function(d) { return x(d.date) })
           .y0( height )
-          .y1(function(d) { return y(d.value) })
+          .y1(function(d) { return y2(d.value) })
           )
 
       // Add the line
@@ -175,7 +175,7 @@
         .attr("stroke-width", 4)
         .attr("d", d3.line()
           .x(function(d) { return x(d.date) })
-          .y(function(d) { return y(d.value) })
+          .y(function(d) { return y2(d.value) })
           )
     
 
