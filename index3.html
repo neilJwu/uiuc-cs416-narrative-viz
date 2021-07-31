@@ -1,5 +1,4 @@
 <html>
-<!-- Create a div where the graph will take place -->
 <div id="my_dataviz" style="float:left">
   <h3>Graph 3: 2014-2018 NICS Firearm Background Checks in the US, Monthly</h3>
   <h3>X-Axis: Date</h3>
@@ -18,12 +17,10 @@
 <svg width=1200 height=1000>
 </svg>
 <script>
-  // set the dimensions and margins of the graph
   var margin = {top: 100, right: 100, bottom: 100, left: 100},
       width = 800 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
-  // append the svg object to the body of the page
   var svg = d3.select("#my_dataviz")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -32,18 +29,14 @@
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")")
 
-  //Read the data
   d3.csv("massaged_data/background-checks-14-18.csv",
 
-    // When reading the csv, I must format variables:
     function(d){
       return { date : d3.timeParse("%Y-%m-%d")(d.date), value : d.value }
     },
 
-    // Now I can use this dataset:
     function(data) {
 
-      // Add X axis --> it is a date format
       var x = d3.scaleTime()
         .domain(d3.extent(data, function(d) { return d.date; }))
         .range([ 0, width ]);
@@ -51,7 +44,6 @@
         .attr("transform", "translate(0," + (height+5) + ")")
         .call(d3.axisBottom(x).ticks(5).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
 
-      // Add Y axis
       var y = d3.scaleLinear()
         .domain( [500000,5000000] )
         .range([ height, 0 ]);
@@ -59,7 +51,6 @@
         .attr("transform", "translate(-5,0)")
         .call(d3.axisLeft(y).tickSizeOuter(0));
 
-      // Add the area
       svg.append("path")
         .datum(data)
         .attr("fill", "#69b3a2")
@@ -71,7 +62,6 @@
           .y1(function(d) { return y(d.value) })
           )
 
-      // Add the line
       svg.append("path")
         .datum(data)
         .attr("fill", "none")
@@ -81,62 +71,8 @@
           .x(function(d) { return x(d.date) })
           .y(function(d) { return y(d.value) })
           )
-    
-
-      // Add the line
-//       svg.selectAll("myCircles")
-//         .data(data)
-//         .enter()
-//         .append("circle")
-//           .attr("fill", "red")
-//           .attr("stroke", "none")
-//           .attr("cx", function(d) { return x(d.date) })
-//           .attr("cy", function(d) { return y(d.value) })
-//           .attr("r", 5)
-//           .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);
-//           })
-//           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-//           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-    
-    // create a tooltip
-//     var tooltip = d3.select("#my_dataviz")
-//       .append("div")
-//         .style("position", "absolute")
-//         .style("visibility", "hidden")
-//         .style("background-color", "white")
-//         .style("border", "solid")
-//         .style("border-width", "1px")
-//         .style("border-radius", "5px")
-//         .style("padding", "10px");
-    
-//     svg.append("line")
-//       .attr("x1", x(new Date("2015-12-02")))
-//       .attr("y1", y(0))
-//       .attr("x2", x(new Date("2015-12-02")))  //<<== and here
-//       .attr("y2", y(5000000))
-//       .style("stroke-width", 2)
-//       .style("stroke", "red")
-//       .style("fill", "none")
-//       .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Dec 02, 2015: 14 Killed in San Bernardino Social Services Center Shooting");
-//           })
-//       .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-//       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-    
-//     svg.append("line")
-//       .attr("x1", x(new Date("2012-12-14")))
-//       .attr("y1", y(0))
-//       .attr("x2", x(new Date("2012-12-14")))  //<<== and here
-//       .attr("y2", y(5000000))
-//       .style("stroke-width", 2)
-//       .style("stroke", "red")
-//       .style("fill", "none")
-//       .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Dec 14, 2012: Sandy Hook Elementary School shooting");
-//           })
-//       .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-//       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
   });
   
-  // append the svg object to the body of the page
   var svg2 = d3.select("#my_dataviz2")
     .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -145,18 +81,14 @@
       .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")")
 
-  //Read the data
   d3.csv("massaged_data/monthly-gun-violence-14-18.csv",
 
-    // When reading the csv, I must format variables:
     function(d){
       return { date : d3.timeParse("%Y-%m")(d.date), value : d.value }
     },
 
-    // Now I can use this dataset:
     function(data) {
 
-      // Add X axis --> it is a date format
       var x = d3.scaleTime()
         .domain([new Date("2014-01"),new Date("2018-03")])
         .range([ 0, width ]);
@@ -164,7 +96,6 @@
         .attr("transform", "translate(0," + (height+5) + ")")
         .call(d3.axisBottom(x).ticks(5).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
 
-      // Add Y axis
       var y2 = d3.scaleLinear()
         .domain( [0,5000] )
         .range([ height, 0 ]);
@@ -172,7 +103,6 @@
         .attr("transform", "translate(-5,0)")
         .call(d3.axisLeft(y2).tickSizeOuter(0));
 
-      // Add the area
       svg2.append("path")
         .datum(data)
         .attr("fill", "blue")
@@ -184,7 +114,6 @@
           .y1(function(d) { return y2(d.value) })
           )
 
-      // Add the line
       svg2.append("path")
         .datum(data)
         .attr("fill", "none")
