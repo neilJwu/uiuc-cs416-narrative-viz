@@ -1,7 +1,9 @@
 <html>
 <!-- Create a div where the graph will take place -->
-<h1>Graph 4: 1999-2021 NICS Firearm Background Checks vs 1999-2021 Real Disposable Income (DSPIC96)</h1>
+<h1>Graphs 4 & 5: 1999-2021 NICS Firearm Background Checks vs 1999-2021 Real Disposable Income (DSPIC96)</h1>
 <div id="my_dataviz"></div>
+<div id="my_dataviz2"></div>
+
 <button onclick="location.href = 'https://neiljwu.github.io/uiuc-cs416-narrative-viz/index3.html';" id="2Back">Back</button>
 <script src='https://d3js.org/d3.v4.min.js'></script>
 <style> rect {fill: lightblue; stroke: black; }</style>
@@ -127,6 +129,15 @@
 //       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
   });
   
+  // append the svg object to the body of the page
+  var svg2 = d3.select("#my_dataviz2")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+
   //Read the data
   d3.csv("massaged_data/RDI-99-2021.csv",
 
@@ -142,7 +153,7 @@
       var x = d3.scaleTime()
         .domain([new Date("1999-01-01"),new Date("2021-06-31")])
         .range([ 0, width ]);
-      svg.append("g")
+      svg2.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
         .call(d3.axisBottom(x).ticks(22).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
 
@@ -150,7 +161,7 @@
       var y2 = d3.scaleLinear()
         .domain( [8000,20000] )
         .range([ height, 0 ]);
-      svg.append("g")
+      svg2.append("g")
         .attr("transform", "translate(" + (width+5) + ",0)")
         .call(d3.axisRight(y2).tickSizeOuter(0));
 
@@ -167,7 +178,7 @@
 //           )
 
       // Add the line
-      svg.append("path")
+      svg2.append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", "blue")
@@ -194,7 +205,7 @@
 //           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     // create a tooltip
-    var tooltip = d3.select("#my_dataviz")
+    var tooltip = d3.select("#my_dataviz2")
       .append("div")
         .style("position", "absolute")
         .style("visibility", "hidden")
@@ -218,6 +229,8 @@
 //       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
   });
+  
+  
     
 </script>
 </body>
