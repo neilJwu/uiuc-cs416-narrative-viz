@@ -41,14 +41,6 @@
       svg.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
         .call(d3.axisBottom(x).ticks(22).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
-    
-      // text label for the x axis
-      svg.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 20) + ")")
-      .style("text-anchor", "middle")
-      .text("Date");
 
       // Add Y axis
       var y = d3.scaleLinear()
@@ -137,14 +129,6 @@
       svg2.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
         .call(d3.axisBottom(x).ticks(22).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
-    
-      // text label for the x axis
-      svg2.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 20) + ")")
-      .style("text-anchor", "middle")
-      .text("Date");
 
       // Add Y axis
       var y2 = d3.scaleLinear()
