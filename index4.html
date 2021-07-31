@@ -197,7 +197,7 @@
           .attr("fill", "red")
           .attr("stroke", "none")
           .attr("cx", function(d) { return x(d.DATE) })
-          .attr("cy", function(d) { return y(d.DSPIC96) })
+          .attr("cy", function(d) { return y2(d.DSPIC96) })
           .attr("r", 5)
           .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("DSPIC96 (: " + d.DSPIC96);
           })
