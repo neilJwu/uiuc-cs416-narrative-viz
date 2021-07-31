@@ -52,7 +52,11 @@
         .range([ height, 0 ]);
       svg.append("g")
         .attr("transform", "translate(-5,0)")
-        .call(d3.axisLeft(y).tickSizeOuter(0));
+        .call(d3.axisLeft(y).tickSizeOuter(0))
+        .append("text")
+        .attr("fill", "black")//set the fill here
+        .attr("transform","rotate(-90)","translate(20, 120)")
+        .text("Firearm Registration Checks");
 
       // Add the area
       svg.append("path")
