@@ -1,7 +1,7 @@
 <html>
 <!-- Create a div where the graph will take place -->
-<h1>Graph 2: 2012-2021 NICS Firearm Background Checks</h1>
-<div id="my_dataviz"></div>
+<div id="my_dataviz" style="float:left"><h1>Graph 2: 2012-2021 NICS Firearm Background Checks</h1>
+</div>
 <button onclick="location.href = 'https://neiljwu.github.io/uiuc-cs416-narrative-viz/index.html';" id="2Back">Back</button>
 <button onclick="location.href = 'https://neiljwu.github.io/uiuc-cs416-narrative-viz/index3.html';" id="2Next">Next</button>
 <script src='https://d3js.org/d3.v4.min.js'></script>
@@ -11,9 +11,9 @@
 </svg>
 <script>
   // set the dimensions and margins of the graph
-  var margin = {top: 150, right: 150, bottom: 150, left: 150},
+  var margin = {top: 100, right: 100, bottom: 100, left: 100},
       width = 1200 - margin.left - margin.right,
-      height = 1000 - margin.top - margin.bottom;
+      height = 800 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   var svg = d3.select("#my_dataviz")
