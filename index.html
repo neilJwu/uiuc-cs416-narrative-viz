@@ -167,6 +167,13 @@
           })
       .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
       .on("mouseout", function(){return tooltip.style("visibility", "visible");});
+    
+      var myText =  svg.append("text")
+     .attr("y", y(5000000) + 10)//magic number here
+     .attr("x", x(new Date("2012-12-14")))
+//      .attr('text-anchor', 'middle')
+//      .attr("class", "myLabel")//easy to style with CSS
+     .text("Dec 14, 2012: Sandy Hook Elementary School shooting");
   });
 </script>
 </body>
