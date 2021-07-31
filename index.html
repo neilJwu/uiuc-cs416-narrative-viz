@@ -41,10 +41,6 @@
       svg.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
         .call(d3.axisBottom(x).ticks(22).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")))
-        .append("text")
-        .attr("fill", "black")//set the fill here
-        .attr("transform","translate(120, 40)")
-        .text("Date");
 
       // Add Y axis
       var y = d3.scaleLinear()
@@ -53,11 +49,6 @@
       svg.append("g")
         .attr("transform", "translate(-5,0)")
         .call(d3.axisLeft(y).tickSizeOuter(0))
-        .append("text")
-        .attr("fill", "black")//set the fill here
-        .attr("transform","translate(0, -40)")
-        .attr("transform","rotate(-90)")
-        .text("Firearm Registration Checks");
 
       // Add the area
       svg.append("path")
