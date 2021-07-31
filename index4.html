@@ -162,8 +162,8 @@
         .domain( [8000,20000] )
         .range([ height, 0 ]);
       svg2.append("g")
-        .attr("transform", "translate(" + (width+5) + ",0)")
-        .call(d3.axisRight(y2).tickSizeOuter(0));
+        .attr("transform", "translate(-5,0)")
+        .call(d3.axisLeft(y2).tickSizeOuter(0));
 
 //       // Add the area
 //       svg.append("path")
