@@ -7,7 +7,11 @@
 </div>
 <button onclick="location.href = 'https://neiljwu.github.io/uiuc-cs416-narrative-viz/index2.html';" id="1Next">Next</button>
 <script src='https://d3js.org/d3.v4.min.js'></script>
-<style> rect {fill: lightblue; stroke: black; }</style>
+<style> 
+  .myLabel {
+    transform: rotate(45deg); /* Equal to rotateZ(45deg) */
+  }
+</style>
 <body>
 <svg width=1200 height=1000>
 </svg>
@@ -169,12 +173,11 @@
       .on("mouseout", function(){return tooltip.style("visibility", "visible");});
     
       var myText =  svg.append("text")
-     .attr("y", y(5000000) + 10)//magic number here
-     .attr("x", x(new Date("2012-12-14")))
+       .attr("y", y(5000000) + 10)//magic number here
+       .attr("x", x(new Date("2012-12-14")))
 //      .attr('text-anchor', 'middle')
-//      .attr("class", "myLabel")//easy to style with CSS
-     .text("Dec 14, 2012: Sandy Hook Elementary School shooting")
-     .attr("transform", "rotate(-45)");
+      .attr("class", "myLabel")//easy to style with CSS
+       .text("Dec 14, 2012: Sandy Hook Elementary School shooting")
   });
 </script>
 </body>
