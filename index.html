@@ -10,7 +10,7 @@
 </svg>
 <script>
   // set the dimensions and margins of the graph
-  var margin = {top: 100, right: 100, bottom: 100, left: 200},
+  var margin = {top: 100, right: 100, bottom: 100, left: 100},
       width = 1200 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
@@ -55,7 +55,7 @@
         .call(d3.axisLeft(y).tickSizeOuter(0))
         .append("text")
         .attr("fill", "black")//set the fill here
-        .attr("transform","rotate(-90)")
+        .attr("transform","translate(0, -40)","rotate(-90)")
         .text("Firearm Registration Checks");
 
       // Add the area
