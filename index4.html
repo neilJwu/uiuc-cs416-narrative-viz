@@ -3,7 +3,7 @@
 <h1>Graphs 4 & 5: 1999-2021 NICS Firearm Background Checks vs 1999-2021 Real Disposable Income (DSPIC96)</h1>
 <div id="my_dataviz" style="float:left"></div>
 <div id="my_dataviz2" style="float:left"></div>
-
+<br>
 <button onclick="location.href = 'https://neiljwu.github.io/uiuc-cs416-narrative-viz/index3.html';" id="2Back" style="display:block">Back</button>
 <script src='https://d3js.org/d3.v4.min.js'></script>
 <style> rect {fill: lightblue; stroke: black; }</style>
@@ -165,17 +165,17 @@
         .attr("transform", "translate(-5,0)")
         .call(d3.axisLeft(y2).tickSizeOuter(0));
 
-//       // Add the area
-//       svg.append("path")
-//         .datum(data)
-//         .attr("fill", "none")
-//         .attr("fill-opacity", .3)
-//         .attr("stroke", "none")
-//         .attr("d", d3.area()
-//           .x(function(d) { return x(d.DATE) })
-//           .y0( height )
-//           .y1(function(d) { return y2(d.DSPIC96) })
-//           )
+      // Add the area
+      svg.append("path")
+        .datum(data)
+        .attr("fill", "blue")
+        .attr("fill-opacity", .3)
+        .attr("stroke", "none")
+        .attr("d", d3.area()
+          .x(function(d) { return x(d.DATE) })
+          .y0( height )
+          .y1(function(d) { return y2(d.DSPIC96) })
+          )
 
       // Add the line
       svg2.append("path")
@@ -189,20 +189,20 @@
           )
     
 
-//       // Add the line
-//       svg.selectAll("myCircles")
-//         .data(data)
-//         .enter()
-//         .append("circle")
-//           .attr("fill", "red")
-//           .attr("stroke", "none")
-//           .attr("cx", function(d) { return x(d.date) })
-//           .attr("cy", function(d) { return y(d.value) })
-//           .attr("r", 5)
-//           .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);
-//           })
-//           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-//           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+      // Add the line
+      svg2.selectAll("myCircles")
+        .data(data)
+        .enter()
+        .append("circle")
+          .attr("fill", "red")
+          .attr("stroke", "none")
+          .attr("cx", function(d) { return x(d.DATE) })
+          .attr("cy", function(d) { return y(d.DSPIC96) })
+          .attr("r", 5)
+          .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("DSPIC96 (: " + d.value);
+          })
+          .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
+          .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     // create a tooltip
     var tooltip = d3.select("#my_dataviz2")
