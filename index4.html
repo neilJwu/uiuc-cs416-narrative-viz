@@ -77,30 +77,30 @@
     
 
       // Add the line
-      svg.selectAll("myCircles")
-        .data(data)
-        .enter()
-        .append("circle")
-          .attr("fill", "red")
-          .attr("stroke", "none")
-          .attr("cx", function(d) { return x(d.date) })
-          .attr("cy", function(d) { return y(d.value) })
-          .attr("r", 5)
-          .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);
-          })
-          .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-          .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+//       svg.selectAll("myCircles")
+//         .data(data)
+//         .enter()
+//         .append("circle")
+//           .attr("fill", "red")
+//           .attr("stroke", "none")
+//           .attr("cx", function(d) { return x(d.date) })
+//           .attr("cy", function(d) { return y(d.value) })
+//           .attr("r", 5)
+//           .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);
+//           })
+//           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
+//           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     // create a tooltip
-    var tooltip = d3.select("#my_dataviz")
-      .append("div")
-        .style("position", "absolute")
-        .style("visibility", "hidden")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "1px")
-        .style("border-radius", "5px")
-        .style("padding", "10px");
+//     var tooltip = d3.select("#my_dataviz")
+//       .append("div")
+//         .style("position", "absolute")
+//         .style("visibility", "hidden")
+//         .style("background-color", "white")
+//         .style("border", "solid")
+//         .style("border-width", "1px")
+//         .style("border-radius", "5px")
+//         .style("padding", "10px");
     
   });
   
@@ -162,17 +162,6 @@
           .x(function(d) { return x(d.DATE) })
           .y(function(d) { return y2(d.DSPIC96) })
           )
-    
-    // create a tooltip
-    var tooltip = d3.select("#my_dataviz2")
-      .append("div")
-        .style("position", "absolute")
-        .style("visibility", "hidden")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "1px")
-        .style("border-radius", "5px")
-        .style("padding", "10px");
     
   });
   
