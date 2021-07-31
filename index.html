@@ -40,15 +40,11 @@
         .range([ 0, width ]);
       svg.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
-        .call(d3.axisBottom(x).ticks(22).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
-    
-      // text label for the x axis
-      svg.append("text")             
-      .attr("transform",
-            "translate(" + (width/2) + " ," + 
-                           (height + margin.top + 20) + ")")
-      .style("text-anchor", "middle")
-      .text("Date");
+        .call(d3.axisBottom(x).ticks(22).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")))
+        .append("text")
+        .attr("fill", "black")//set the fill here
+        .attr("transform","translate(120, 40)")
+        .text("Date");
 
       // Add Y axis
       var y = d3.scaleLinear()
