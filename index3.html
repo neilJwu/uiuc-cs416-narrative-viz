@@ -1,7 +1,8 @@
 <html>
 <!-- Create a div where the graph will take place -->
 <h1>Graph 3: 2014-2018 NICS Firearm Background Checks vs 2014-2018 Gun Violence</h1>
-<div id="my_dataviz"></div>
+<div id="my_dataviz" style="float:left"></div>
+<div id="my_dataviz2" style="float:left"></div>
 <button onclick="location.href = 'https://neiljwu.github.io/uiuc-cs416-narrative-viz/index2.html';" id="2Back">Back</button>
 <button onclick="location.href = 'https://neiljwu.github.io/uiuc-cs416-narrative-viz/index4.html';" id="2Next">Next</button>
 <script src='https://d3js.org/d3.v4.min.js'></script>
@@ -11,8 +12,8 @@
 </svg>
 <script>
   // set the dimensions and margins of the graph
-  var margin = {top: 50, right: 150, bottom: 150, left: 150},
-      width = 1200 - margin.left - margin.right,
+  var margin = {top: 100, right: 100, bottom: 100, left: 100},
+      width = 800 - margin.left - margin.right,
       height = 800 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
@@ -76,30 +77,30 @@
     
 
       // Add the line
-      svg.selectAll("myCircles")
-        .data(data)
-        .enter()
-        .append("circle")
-          .attr("fill", "red")
-          .attr("stroke", "none")
-          .attr("cx", function(d) { return x(d.date) })
-          .attr("cy", function(d) { return y(d.value) })
-          .attr("r", 5)
-          .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);
-          })
-          .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-          .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+//       svg.selectAll("myCircles")
+//         .data(data)
+//         .enter()
+//         .append("circle")
+//           .attr("fill", "red")
+//           .attr("stroke", "none")
+//           .attr("cx", function(d) { return x(d.date) })
+//           .attr("cy", function(d) { return y(d.value) })
+//           .attr("r", 5)
+//           .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Firearm Background Checks: " + d.value);
+//           })
+//           .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
+//           .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
     // create a tooltip
-    var tooltip = d3.select("#my_dataviz")
-      .append("div")
-        .style("position", "absolute")
-        .style("visibility", "hidden")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "1px")
-        .style("border-radius", "5px")
-        .style("padding", "10px");
+//     var tooltip = d3.select("#my_dataviz")
+//       .append("div")
+//         .style("position", "absolute")
+//         .style("visibility", "hidden")
+//         .style("background-color", "white")
+//         .style("border", "solid")
+//         .style("border-width", "1px")
+//         .style("border-radius", "5px")
+//         .style("padding", "10px");
     
 //     svg.append("line")
 //       .attr("x1", x(new Date("2015-12-02")))
@@ -128,6 +129,15 @@
 //       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
   });
   
+  // append the svg object to the body of the page
+  var svg2 = d3.select("#my_dataviz2")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")")
+
   //Read the data
   d3.csv("massaged_data/monthly-gun-violence-14-18.csv",
 
@@ -141,9 +151,9 @@
 
       // Add X axis --> it is a date format
       var x = d3.scaleTime()
-        .domain(d3.extent(data, function(d) { return d.date; }))
+        .domain([new Date("2014-01"),new Date("2018-03")])
         .range([ 0, width ]);
-      svg.append("g")
+      svg2.append("g")
         .attr("transform", "translate(0," + (height+5) + ")")
         .call(d3.axisBottom(x).ticks(5).tickSizeOuter(0).tickFormat(d3.timeFormat("%Y")));
 
@@ -151,14 +161,14 @@
       var y2 = d3.scaleLinear()
         .domain( [0,5000] )
         .range([ height, 0 ]);
-      svg.append("g")
-        .attr("transform", "translate(" + (width+5) + ",0)")
-        .call(d3.axisRight(y2).tickSizeOuter(0));
+      svg2.append("g")
+        .attr("transform", "translate(-5,0)")
+        .call(d3.axisLeft(y2).tickSizeOuter(0));
 
       // Add the area
-      svg.append("path")
+      svg2.append("path")
         .datum(data)
-        .attr("fill", "#69b3a2")
+        .attr("fill", "blue")
         .attr("fill-opacity", .3)
         .attr("stroke", "none")
         .attr("d", d3.area()
@@ -168,55 +178,15 @@
           )
 
       // Add the line
-      svg.append("path")
+      svg2.append("path")
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "#69b3a2")
+        .attr("stroke", "blue")
         .attr("stroke-width", 4)
         .attr("d", d3.line()
           .x(function(d) { return x(d.date) })
           .y(function(d) { return y2(d.value) })
           )
-    
-
-      // Add the line
-      svg.selectAll("myCircles")
-        .data(data)
-        .enter()
-        .append("circle")
-          .attr("fill", "red")
-          .attr("stroke", "none")
-          .attr("cx", function(d) { return x(d.date) })
-          .attr("cy", function(d) { return y2(d.value) })
-          .attr("r", 5)
-          .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Total Number of Incidents: " + d.value);
-          })
-          .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-          .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-    
-    // create a tooltip
-    var tooltip = d3.select("#my_dataviz")
-      .append("div")
-        .style("position", "absolute")
-        .style("visibility", "hidden")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "1px")
-        .style("border-radius", "5px")
-        .style("padding", "10px");
-    
-//     svg.append("line")
-//       .attr("x1", x(new Date("2015-12-02")))
-//       .attr("y1", y2(0))
-//       .attr("x2", x(new Date("2015-12-02")))  //<<== and here
-//       .attr("y2", y2(5000000))
-//       .style("stroke-width", 2)
-//       .style("stroke", "red")
-//       .style("fill", "none")
-//       .on("mouseover", function(d){return tooltip.style("visibility", "visible").text("Dec 02, 2015: 14 Killed in San Bernardino Social Services Center Shooting");
-//           })
-//       .on("mousemove", function(){return tooltip.style("left", (d3.mouse(this)[0]) + "px").style("top", (d3.mouse(this)[1]+90) + "px");})
-//       .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
     
   });
     
